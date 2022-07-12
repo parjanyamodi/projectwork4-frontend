@@ -3,15 +3,15 @@ import baseurl from "../baseurl";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
-const Login = (props) => {
+const Register = (props) => {
   const cookies = new Cookies();
   const userInfo = cookies.get("userInfo");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const signIn = (e) => {
+  const signUp = (e) => {
     e.preventDefault();
-    fetch(`${baseurl}/login`, {
+    fetch(`${baseurl}/register`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,11 +27,8 @@ const Login = (props) => {
       .then((data) => {
         console.log(data);
         data.status === 200
-          ? navigate("/data-collection")
+          ? navigate("/login")
           : alert(data.message ? data.message : "Something went wrong");
-        if (data.status === 200) {
-          cookies.set("userInfo", data.email);
-        }
       });
   };
   if (userInfo) {
@@ -43,9 +40,9 @@ const Login = (props) => {
         <div className="col-md-6 mt-5">
           <div className="card">
             <div className="card-body  text-white">
-              <h1>Login</h1>
+              <h1>Register</h1>
               <br />
-              <form onSubmit={signIn}>
+              <form onSubmit={signUp}>
                 <div className="form-group">
                   <label htmlFor="email">Email address</label>
                   <input
@@ -55,6 +52,7 @@ const Login = (props) => {
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                     value={email}
+                    required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <label htmlFor="password">Password</label>
@@ -64,6 +62,7 @@ const Login = (props) => {
                     id="password"
                     placeholder="Password"
                     value={password}
+                    required
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <button type="submit" className="btn btn-primary">
@@ -78,4 +77,4 @@ const Login = (props) => {
     </div>
   );
 };
-export default Login;
+export default Register;
