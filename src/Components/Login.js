@@ -46,7 +46,7 @@ const Login = (props) => {
               <h1>Login</h1>
               <br />
               <form onSubmit={signIn}>
-                <div className="form-group">
+                <div className="form-group text-start">
                   <label htmlFor="email">Email address</label>
                   <input
                     type="email"
@@ -60,13 +60,23 @@ const Login = (props) => {
                   <label htmlFor="password">Password</label>
                   <input
                     type="password"
-                    className="form-control input"
+                    className="form-control input mb-2"
                     id="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <button type="submit" className="btn btn-primary">
+                  <label>
+                    If not a user, Please{" "}
+                    <a
+                      href="/register"
+                      className="text-decoration-none text-warning"
+                    >
+                      <strong>Register</strong>
+                    </a>
+                  </label>
+                  <br />
+                  <button type="submit" className="btn btn-primary mt-5">
                     Submit
                   </button>
                 </div>
