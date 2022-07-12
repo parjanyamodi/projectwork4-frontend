@@ -2,15 +2,18 @@ const Graph = () => {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <div className="container min-vh-100">
-      <div className="row">
-        <div className="col-12">
+      <div className="row ">
+        <div className="col-12 mt-5">
           <div className="row justify-content-center">
             {arr.map((i) => {
               return (
                 <div className="col-md-6 mb-4">
-                  <div className="card  h-100">
-                    <div className="card-body">
-                      <img src={`/imgs/` + i + `.png`} className="graph" />
+                  <div className="card  h-100 align-middle">
+                    <div className="card-body align-middle">
+                      <img
+                        src={`/imgs/` + i + `.png`}
+                        className="graph align-middle"
+                      />
                     </div>
                   </div>
                 </div>
