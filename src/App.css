@@ -64,3 +64,12 @@
   border-radius: 10px;
   border: none;
 }
+.graph{
+  width: 500px;
+  border-radius: 10px;
+
+}
+.bigGraph{
+  width: 70vw;
+  border-radius: 10px;
+}
